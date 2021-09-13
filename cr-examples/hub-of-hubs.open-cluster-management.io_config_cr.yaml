@@ -6,3 +6,6 @@ metadata:
     name: hub-of-hubs-config
 spec:
   aggregationLevel: full
+  heartbeatIntervals:
+    hohInSeconds: 60
+    leafHubInSeconds: 60
