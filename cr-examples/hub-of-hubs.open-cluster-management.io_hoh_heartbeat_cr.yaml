@@ -7,8 +7,8 @@ metadata:
 status:
   lastTimestamp: 1631964743
   conditions:
-    - type: HohConditionAvailable
-      status: Unknown
-      lasttransitiontime: "2021-09-18T18:35:22.317563Z"
-      reason: HohHeartbeatUpdateStopped
-      message: HoH agent stopped updating its heartbeat.
+  - type: HohConditionAvailable
+    status: Unknown
+    lasttransitiontime: "2021-09-18T18:35:22.317563Z"
+    reason: HohHeartbeatUpdateStopped
+    message: HoH agent stopped updating its heartbeat.
