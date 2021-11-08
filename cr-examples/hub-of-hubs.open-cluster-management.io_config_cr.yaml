@@ -9,3 +9,5 @@ spec:
   heartbeatIntervals:
     hohInSeconds: 60
     leafHubInSeconds: 60
+  enableLocalPolicies: true
+  
