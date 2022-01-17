@@ -1,0 +1,68 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: hub.hub-of-hubs.open-cluster-management.io
+spec:
+  group: hub-of-hubs.open-cluster-management.io
+  names:
+    kind: Hub
+    listKind: HubList
+    plural: hubs
+    singular: hub
+  scope: Namespaced
+  versions:
+    - name: v1
+      schema:
+        openAPIV3Schema:
+          description: Hub is the Schema for the hubs API
+          properties:
+            apiVersion:
+              description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+              type: string
+            kind:
+              description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: HubSpec defines the desired state of Hub
+              properties:
+                uuid:
+                  description: uuid specifies the unique identifier for the hub
+                  type: string
+              type: object
+            status:
+              description: HubStatus defines the observed state of Hub
+              properties:
+                active-uuid:
+                  description: active-uuid specifies the uuid the rest of the status is relevant for. The status can be consumed only if spec.uuid == status.active-uuid
+                  type: string
+                transport-bootstrap-servers:
+                  description: transport-bootstrap-servers specifies servers address the hub transport should connect to
+                  type: string
+                transport-tls-certificate:
+                  description: transport-tls-certificate specifies the tls certificate the hub transport should use to connect to the servers
+                  type: string
+                transport-spec-topic:
+                  description: transport-spec-topic specifies the Kafka spec topic the hub transport should consume from
+                  type: string
+                writer-incarnation:
+                  description: writer-incarnation specifies the incarnation version to be deployed with the hub
+                  type: uint64
+              type: object
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
