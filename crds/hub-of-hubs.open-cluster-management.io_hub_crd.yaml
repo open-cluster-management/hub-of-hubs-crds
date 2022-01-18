@@ -66,9 +66,6 @@ spec:
                         type: string
                         description: Human-readable message indicating details about
                           the condition's last transition.
-                active-uuid:
-                  description: active-uuid specifies the uuid the rest of the status is relevant for. The status can be consumed only if spec.uuid == status.active-uuid
-                  type: string
                 transport-bootstrap-servers:
                   description: transport-bootstrap-servers specifies servers address the hub transport should connect to
                   type: string
